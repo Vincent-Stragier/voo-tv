@@ -6,11 +6,11 @@ Attention, il est possible que votre pare-feu bloque l'exécution de cette API. 
 
 ## LICENSE
 
-> ​    voo_evasion is a Python module which allows to detect and control an .évasion box from VOO (Belgium)
+> ​    `voo_evasion` is a Python module which allows to detect and control a .évasion box from VOO (Belgium)
 >
 > ​    Copyright (C) 2019 Vincent STRAGIER (vincent.stragier@outlook.com)
 >
-> 
+>
 >
 > ​    This program is free software: you can redistribute it and/or modify
 >
@@ -20,7 +20,7 @@ Attention, il est possible que votre pare-feu bloque l'exécution de cette API. 
 >
 > ​    (at your option) any later version.
 >
-> 
+>
 >
 > ​    This program is distributed in the hope that it will be useful,
 >
@@ -30,7 +30,7 @@ Attention, il est possible que votre pare-feu bloque l'exécution de cette API. 
 >
 > ​    GNU General Public License for more details.
 >
-> 
+>
 >
 > ​    You should have received a copy of the GNU General Public License
 >
@@ -44,15 +44,12 @@ L'API a été développé sous Python 3 (sous Windows 10 et Debian). La détecti
 
 Installation de `python3` et de `pip3` afin d'installer `netifaces`, en ouvrant un terminal ou en SSH :
 
-> sudo apt update
->
-> sudo apt upgrade
->
-> sudo apt install -y python3 pip3 python3-pip
->
-> pip3 install netifaces
-
-
+```bash
+sudo apt update
+sudo apt upgrade
+sudo apt install -y python3 pip3 python3-pip
+pip3 install netifaces
+```
 
 ### Sous Windows
 
@@ -72,34 +69,34 @@ L'API est un simple script Python qui se trouve dans une machine qui est sur le 
 
 `py .\evasion.py -h` lance l'aide de l'API et affiche toutes les options disponibles :
 
-##### Remarque : `py` peut-être remplacé par `py -3` sous Windows et par `python3` sous Linux qui ne connait pas cette commande.
+Remarque : `py` peut-être remplacé par `py -3` sous Windows et par `python3` sous Linux qui ne connait pas cette commande
 
-> PS C:\User\chemin_vers_API> py .\\evasion.py -h
-> usage: evasion.py [-h] [-v] [-f] [-s] [-a ADDRESS] [-p PORT]
->                   [-c COMMAND [COMMAND ...]] [-ch CHANNEL]
->                   [-cv CONVERT_COMMAND [CONVERT_COMMAND ...]] [-lc]
->
-> optional arguments:
->   -h, --help            show this help message and exit
->   -v, --verbose         increase output verbosity
->   -f, --find            return a list of potential .evasion boxes.
->   -s, --status          return 'success' if the command has been send else it
->                         return 'fail'.
->   -a ADDRESS, --address ADDRESS
->                         IP address of the .evasion box
->   -p PORT, --port PORT  port of the .evasion box, default is 5900 [optional]
->   -c COMMAND [COMMAND ...], --command COMMAND [COMMAND ...]
->                         command to send to the .evasion box (the command is
->                         checked), name of the command and value are accepted
->   -ch CHANNEL, --channel CHANNEL
->                         send the command to the .evasion box to change the
->                         channel (must be an integer)
->   -cv CONVERT_COMMAND [CONVERT_COMMAND ...], --convert_command CONVERT_COMMAND [CONVERT_COMMAND ...]
->                         convert a valid command from name to value or from
->                         value to name
->   -lc, --list_commands  display the list of known commands
+```bash
+PS C:\User\chemin_vers_API> py .\\evasion.py -h
+usage: evasion.py [-h] [-v] [-f] [-s] [-a ADDRESS] [-p PORT]
+               [-c COMMAND [COMMAND ...]] [-ch CHANNEL]
+               [-cv CONVERT_COMMAND [CONVERT_COMMAND ...]] [-lc]
 
-
+optional arguments:
+-h, --help            show this help message and exit
+-v, --verbose         increase output verbosity
+-f, --find            return a list of potential .evasion boxes.
+-s, --status          return 'success' if the command has been send else it
+                     return 'fail'.
+-a ADDRESS, --address ADDRESS
+                     IP address of the .evasion box
+-p PORT, --port PORT  port of the .evasion box, default is 5900 [optional]
+-c COMMAND [COMMAND ...], --command COMMAND [COMMAND ...]
+                     command to send to the .evasion box (the command is
+                     checked), name of the command and value are accepted
+-ch CHANNEL, --channel CHANNEL
+                     send the command to the .evasion box to change the
+                     channel (must be an integer)
+-cv CONVERT_COMMAND [CONVERT_COMMAND ...], --convert_command CONVERT_COMMAND [CONVERT_COMMAND ...]
+                     convert a valid command from name to value or from
+                     value to name
+-lc, --list_commands  display the list of known commands
+```
 
 ### Liste des options
 
@@ -116,9 +113,7 @@ L'API est un simple script Python qui se trouve dans une machine qui est sur le 
 
 A priori, les options qui nous intéresse le plus sont -a, -c, -s, -f et -lc. L'option -v est plus destinée à réalisé du débogue, -cv n'est pas vraiment utile.
 
-
-
-### Liste des commandes
+### Liste des commandes (ancienne version)
 
 | Nom de la commande | Valeur |
 | ------------------ | ------ |
@@ -159,8 +154,6 @@ A priori, les options qui nous intéresse le plus sont -a, -c, -s, -f et -lc. L'
 | BE_TV              | 57359  |
 | OK                 | 57345  |
 
-
-
 ## Utilisation de l'API
 
 Démonstration des fonctionnalités de l'API.
@@ -169,83 +162,91 @@ Démonstration des fonctionnalités de l'API.
 
 `py .\evasion.py -f -v` lance un scan du réseau en mode *verbose* depuis l'hôte sur lequel le script est exécuté. L'interface réseau par défaut est utilisée, ensuite, les adresses IP du réseau sont calculés pour finalement être analysées par différents process.
 
-> PS C:\User\chemin_vers_API> py .\\evasion.py -f -v
-> Verbosity turned on.
->
-> Arguments:
->
-> 'verbose': True
-> 'find': True
-> 'status': False
-> 'port': 5900
-> 'command': None
-> 'raw_command': None
-> 'convert_command': None
-> 'list_commands': False
->
-> Start scanning network (this is a CPU intensive task, which needs the 'netifaces' module):
-> 192.168.0.0/24
-> Pool size (max=256): 200
-> ['192.168.0.15']
-> Scan is done
-> Potential .evasion box:
-> IP: 192.168.0.15
+```bash
+PS C:\User\chemin_vers_API> py .\evasion.py -f -v
+Verbosity turned on.
+
+Arguments:
+
+'verbose': True
+'find': True
+'status': False
+'port': 5900
+'command': None
+'raw_command': None
+'convert_command': None
+'list_commands': False
+
+Start scanning network (this is a CPU intensive task, which needs the 'netifaces' module):
+192.168.0.0/24
+Pool size (max=256): 200
+['192.168.0.15']
+Scan is done
+Potential .evasion box:
+IP: 192.168.0.15
+```
 
 `py .\evasion.py -f` idem ici, mais sans toutes les informations apportées par l'option *verbose*.
 
-> PS C:\User\chemin_vers_API> py .\\evasion.py -f
-> Start scanning network (this is a CPU intensive task, which needs the 'netifaces' module):
-> Potential .evasion box:
-> IP: 192.168.0.15
+```bash
+PS C:\User\chemin_vers_API> py .\evasion.py -f
+Start scanning network (this is a CPU intensive task, which needs the 'netifaces' module):
+Potential .evasion box:
+IP: 192.168.0.15
+```
 
 ### Affichage de la liste des commandes
 
 `py .\evasion.py -lc` affiche la liste des commandes connues.
 
-> PS C:\User\chemin_vers_API> py .\\evasion.py -lc
-> APPLICATION = 57352
-> BACK = 57346
-> BE_ON_DEMAND = 61236
-> BE_TV = 57359
-> DOWN = 57601
-> FAST_FORWARD = 58373
-> FAST_REVERSE = 58375
-> GUIDE = 57355
-> HOME = 61184
-> INFO = 57358
-> LEFT = 57602
-> MUTE = 57349
-> MY_RECORDINGS = 61235
-> OK = 57345
-> PLAY = 58368
-> RECORD = 58371
-> RED_KEY = 57856
-> REMOTE_0 = 58112
-> REMOTE_1 = 58113
-> REMOTE_2 = 58114
-> REMOTE_4 = 58116
-> REMOTE_6 = 58118
-> REMOTE_7 = 58119
-> REMOTE_8 = 58120
-> REMOTE_9 = 58121
-> RIGHT = 57603
-> STAND_BY = 57344
-> STOP = 58370
-> TV = 57360
-> UP = 57600
-> VIDEO_WALL = 61234
-> VOD = 61224
-> VOL_DOWN = 57348
-> VOL_UP = 57347
+```bash
+PS C:\User\chemin_vers_API> py .\evasion.py -lc
+APPLICATION = 57352
+BACK = 57346
+BE_ON_DEMAND = 61236
+BE_TV = 57359
+DOWN = 57601
+FAST_FORWARD = 58373
+FAST_REVERSE = 58375
+GUIDE = 57355
+HOME = 61184
+INFO = 57358
+LEFT = 57602
+MUTE = 57349
+MY_RECORDINGS = 61235
+OK = 57345
+PLAY = 58368
+RECORD = 58371
+RED_KEY = 57856
+REMOTE_0 = 58112
+REMOTE_1 = 58113
+REMOTE_2 = 58114
+REMOTE_4 = 58116
+REMOTE_6 = 58118
+REMOTE_7 = 58119
+REMOTE_8 = 58120
+REMOTE_9 = 58121
+RIGHT = 57603
+STAND_BY = 57344
+STOP = 58370
+TV = 57360
+UP = 57600
+VIDEO_WALL = 61234
+VOD = 61224
+VOL_DOWN = 57348
+VOL_UP = 57347
+```
 
 ### Conversion de commandes
 
 `py .\evasion.py -cv NOM_COMMANDE_OU_VALEUR_1 [NOM_COMMANDE_OU_VALEUR_2] [...]`  permet de convertir un nom ou une valeur de command en sa valeur ou en son nom.
 
-> PS C:\User\chemin_vers_API> py .\\evasion.py -cv tv
-> 57360
-> PS C:\User\chemin_vers_API> py .\\evasion.py -cv 57600
-> UP
+```bash
+PS C:\User\chemin_vers_API> py .\evasion.py -cv tv
+57360
+PS C:\User\chemin_vers_API> py .\evasion.py -cv 57600
+UP
+```
 
 ### Envoie de commandes
 

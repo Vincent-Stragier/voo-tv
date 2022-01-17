@@ -1,5 +1,5 @@
 """
-    voo_evasion is a Python module which allows to detect and control
+    `voo_evasion` is a Python module which allows to detect and control
     a .évasion box from VOO (Belgium)
     Copyright (C) 2019 Vincent STRAGIER (vincent.stragier@outlook.com)
 
