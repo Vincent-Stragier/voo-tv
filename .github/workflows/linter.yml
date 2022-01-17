@@ -16,10 +16,10 @@ name: Lint Code Base
 #############################
 on:
   push:
-    branches: [master]
-    # Remove the line above to run when pushing to master
+    branches: [main]
+    # Remove the line above to run when pushing to main
   pull_request:
-    branches: [master]
+    branches: [main]
 
 ###############
 # Set the Job #
