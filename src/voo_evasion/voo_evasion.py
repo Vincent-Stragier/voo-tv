@@ -386,7 +386,8 @@ def send_cmd(ip, port, cmd, protocol="RFB", timeout=None):
 
 
 def main():
-    parser = argparse.ArgumentParser()
+    program = 'py -3' if sys.platform == 'win32' else 'python3'
+    parser = argparse.ArgumentParser(prog=f"{program} -m voo_evasion")
     parser.add_argument("-v", "--verbose", default=False,
                         help="increase output verbosity",
                         action="store_true")
