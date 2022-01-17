@@ -1,1 +1,1 @@
-from voo_evasion.remote import *
+from .voo_evasion import *

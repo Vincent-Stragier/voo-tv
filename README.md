@@ -38,17 +38,15 @@ Attention, il est possible que votre pare-feu bloque l'exécution de cette API. 
 
 ## Installation et *requirements*
 
-L'API a été développé sous Python 3 (sous Windows 10 et Debian). La détection de la box nécessite l'installation du module `netifaces`. L'installation de ce module est optionnel, car il n'est nécessaire que pour l'option de recherche de la box.
+L'API a été développé sous Python 3 (sous Windows 11 et Debian).
 
 ### Sous Linux
 
-Installation de `python3` et de `pip3` afin d'installer `netifaces`, en ouvrant un terminal ou en SSH :
+Installation de `python3` et de `pip3` en ouvrant un terminal ou via SSH :
 
 ```bash
-sudo apt update
-sudo apt upgrade
-sudo apt install -y python3 pip3 python3-pip
-pip3 install netifaces
+sudo apt update && sudo apt upgrade
+sudo apt install -y python3 python3-pip
 ```
 
 ### Sous Windows
@@ -113,7 +111,7 @@ optional arguments:
 
 A priori, les options qui nous intéresse le plus sont -a, -c, -s, -f et -lc. L'option -v est plus destinée à réalisé du débogue, -cv n'est pas vraiment utile.
 
-### Liste des commandes (ancienne version)
+### Liste des commandes
 
 | Nom de la commande | Valeur |
 | ------------------ | ------ |

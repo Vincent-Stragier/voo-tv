@@ -570,5 +570,10 @@ def main():
     """
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+    import warnings
+    mod = "voo_evasion"
+    warnings.warn(
+        f"use 'python -m {mod}', not 'python -m {mod}.{mod}'",
+        DeprecationWarning)
     main()
