@@ -55,7 +55,7 @@ jobs:
           # VALIDATE_ALL_CODEBASE: false
           # ACTIONS_RUNNER_DEBUG: true
           # FILTER_REGEX_INCLUDE: .*src/.* .*test/.* .*old/.*, 
-          FILTER_REGEX_EXCLUDE: (./reports/.*|./jobs_scripts/template.sh)
+#           FILTER_REGEX_EXCLUDE: (./reports/.*|./jobs_scripts/template.sh)
           VALIDATE_LATEX: false
           # VALIDATE_JSON: true
           # VALIDATE_PYTHON: true
@@ -65,5 +65,5 @@ jobs:
           VALIDATE_PYTHON_MYPY: false
           VALIDATE_JSCPD: false
 
-          DEFAULT_BRANCH: master
+          DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
