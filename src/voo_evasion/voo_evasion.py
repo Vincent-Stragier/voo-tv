@@ -120,14 +120,14 @@ def is_RFB_and_like_VOO_evasion_Pool(
 def scan_RFB(ports: list):
     """Scan the default interface network (all the IPs on the  interface)
     to find .evasion box(es) and return a list of potential boxes."""
-    import netifaces
-    import ipaddress
+    from ipaddress import ip_address, ip_network
     from multiprocessing import Pool
+    from netifaces import AF_INET, ifaddresses, gateways
 
     # Find default network interface
-    default_iface = netifaces.gateways()['default'][netifaces.AF_INET]
+    default_iface = gateways()['default'][AF_INET]
     # Addresses de l'interface
-    addrs = netifaces.ifaddresses(default_iface[1])[netifaces.AF_INET]
+    addrs = ifaddresses(default_iface[1])[AF_INET]
 
     ls = []
 
@@ -135,7 +135,7 @@ def scan_RFB(ports: list):
         for port in ports:
             print(port)
             # Extract and compute subnet mask
-            mask = format(int(ipaddress.ip_address(addr["netmask"])), "32b")
+            mask = format(int(ip_address(addr["netmask"])), "32b")
             print(f"{mask = }")
 
             cnt_1 = mask.count("1")
@@ -145,8 +145,10 @@ def scan_RFB(ports: list):
                 print('Error, invalid mask address.')
                 mask = 'invalid mask'
 
-            ip_base = ipaddress.ip_network(
-                f"{addr['broadcast'].replace('255', '0')}/{mask}")
+            # Compute the network IP address
+            ip_base = int(ip_address(addr["addr"]))
+            ip_base &= int(ip_address(addr["netmask"]))
+            ip_base = ip_network(f"{ip_address(ip_base)}/{mask}")
 
             # Base IP address
             print(f"{ip_base = }")
