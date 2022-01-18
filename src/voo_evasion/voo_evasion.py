@@ -399,7 +399,7 @@ def main():
                       "(default).")
     mode.add_argument("-rfb", action="store_true", default=False,
                       help="use RFB for legacy .evasion boxes (default is to "
-                      "use RFB).")
+                      "use HTTP).")
     parser.add_argument("-f", "--find", default=False,
                         help="return a list of potential .evasion boxes.",
                         action="store_true")
