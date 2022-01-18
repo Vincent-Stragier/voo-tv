@@ -2,7 +2,9 @@
 
 [![GitHub Super-Linter](https://github.com/2010019970909/voo-tv/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
-Ayant découvert ce [post](https://forum.voo.be/ma-box-evasion-10/api-de-la-box-evasion-7227) sur le forum de VOO et ce [GitHub](https://github.com/FiReBlUe45/VOO-Evasion-API) parlant de la création d'une API pour la box .evasion, je me suis lancé dans la création d'une API permettant de contrôler la box par le biais du réseau, mais aussi de trouver son adresse IP (probable), d'afficher les commandes connues et d'effectuer une conversion du nom de la commande au code envoyé et vice versa.
+Ayant découvert ce [post](https://forum.voo.be/ma-box-evasion-10/api-de-la-box-evasion-7227) sur le forum de VOO et ce [GitHub](https://github.com/FiReBlUe45/VOO-Evasion-API) parlant de la création d'une API pour la box .evasion, je me suis lancé dans la création d'une API permettant de contrôler la box par le biais du réseau...
+
+Mais aussi, de trouver son adresse IP (probable), d'afficher les commandes connues et d'effectuer une conversion du nom de la commande au code envoyé et vice versa.
 
 Attention, il est possible que votre pare-feu bloque l'exécution de cette API. Si tel est le cas tester l'API sans pare-feu et ajouter une autorisation pour le script (normalement seul le port 5900 ou le port 38520 est utilisé, voir plus bas pour plus de détails).
 
