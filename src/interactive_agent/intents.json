@@ -1,0 +1,70 @@
+{
+	"intents": [
+		{
+			"tag": "salutations",
+			"patterns": [
+				"hello",
+				"salut",
+				"coucou",
+				"bonjour",
+				"bonsoir"
+			],
+			"responses": [
+				"Hello!",
+				"Bonne journée!",
+				"Bonne soirée!"
+			]
+		},
+		{
+			"tag": "reconnaissance de visage",
+			"patterns": [
+				"Où sont mes amis?",
+				"Où sont mes parents?",
+				"Est-ce que Virginie est là?",
+				"Qui sont les personnes présentes?",
+				"Qui est derrière moi?",
+				"Qui est devant moi?"
+			],
+			"responses": [
+				"'Activation du module de reconnaissance faciale'"
+			]
+		},
+		{
+			"tag": "détection d'objet",
+			"patterns": [
+				"Où sont mes lunettes ?",
+				"Est-ce que vous pouvez localiser mon gsm ?",
+				"Est-ce qu'il y a une issue de secours ?",
+				"Est ce qu'on m'a laissé des post-it sur le frigo ?",
+				"Est-ce que vous connaissez cette famille de plantes ?",
+				"Est-ce qu'il y a des obstacles sur le sol ?",
+				"Comment est habillé Kevin aujourd'hui ?",
+				"Est-ce qu'il y a des affiches autour de moi ?"
+			],
+			"responses": [
+				"'Activation de la détection d'objets'"
+			]
+		},
+		{
+			"tag": "reconnaissance d'environnement",
+			"patterns": [
+				"Dans quel environnement suis-je ?",
+				"Dans quel genre d'environnement sommes-nous ?"
+			],
+			"responses": [
+				"'Activation du module de reconnaissance d'environnement'"
+			]
+		},
+		{
+			"tag": "OCR",
+			"patterns": [
+				"Pourriez-vous me lire cette affiche ?",
+				"Lis ce texte.",
+				"Lis cette affiche."
+			],
+			"responses": [
+				"'Activation du module OCR'"
+			]
+		}
+	]
+}
